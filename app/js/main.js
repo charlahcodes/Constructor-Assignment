@@ -1,7 +1,27 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 // Constructors
 // Only add code to *THIS* section!
+'use strict';
 
+var Dog = function Dog(params) {
+  params = params || {};
+  this.color = params.color;
+  this.status = params.status ? params.status : 'normal';
+  this.hungry = params.hungry !== undefined ? false : true;
+  // this.hungry = params.hungry !== false ? true: false;
+  this.owner = params.owner;
+};
+
+var Human = function Human(params) {
+  params = params || {};
+  this.pet = function (dogName) {
+    dogName.status = 'happy';
+  };
+  this.feed = function (dogName) {
+    dogName.hungry = false;
+  };
+  this.cool = params.cool ? true : false;
+};
 ///
 ///
 ///
@@ -9,8 +29,6 @@
 
 // Do not ADD or MODIFY code below this line :)
 // Dogs
-'use strict';
-
 var sadie = new Dog({
   color: 'black',
   hungry: false
